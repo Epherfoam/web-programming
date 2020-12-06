@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header bg-danger" style="font-weight: 800; color:white">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -94,11 +94,11 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
-                                  <div class="radio">
+                                  <div class="radio float-left" style="margin-top:0.6em; margin-right:0.6em;">
                                     <label  ><input name="gender" type="radio" value="Male">Male</label>
                                   </div>
-                                  <div class="radio">
-                                    <label  ><input name="gender" type="radio" value="Female">Female</label>
+                                  <div class="radio float-left " style="margin-top:0.6em;">
+                                    <label ><input name="gender" type="radio" value="Female" >Female</label>
                                   </div>
 
                                 @error('name')
