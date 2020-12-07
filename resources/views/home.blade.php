@@ -3,9 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <h1>Order newly</h1>
         <div class="col-10">
             <div class="card-deck">
-                @for ($i = 0; $i < 3; $i++)
+                @foreach()
                 <div class="card">
                     <img src="..." class="card-img-top" alt="Pizza Picture">
                     <div class="card-body">
@@ -14,7 +15,7 @@
                     </div>
                   </div>
 
-                @endfor
+                @endforeach
               </div>
 
             {{-- <div class="card">
