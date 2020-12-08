@@ -51,6 +51,19 @@
                         @else
 
                             @if (Auth::user()->role =='Admin')
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ }}"style="font-weight: 500; color:white">{{ __('View All User Transaction') }}</a>
+                            </li>
+
+                            <p> | </p>
+
+                            <li class="nav-item">
+                               <a class="nav-link" href="{{  }}"style="font-weight: 500; color:white">{{ __('View All User') }}</a>
+                            </li>
+
+                            <p> | </p>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" style="font-weight: 500; color:white" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     admin
@@ -70,6 +83,19 @@
                             </li>
                             @endif
                             @if(Auth::user()->role =='Member')
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ }}"style="font-weight: 500; color:white">{{ __('View Transaction History') }}</a>
+                            </li>
+
+                            <p> | </p>
+
+                            <li class="nav-item">
+                               <a class="nav-link" href="{{  }}"style="font-weight: 500; color:white">{{ __('View Cart') }}</a>
+                            </li>
+
+                            <p> | </p>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" style="font-weight: 500; color:white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
