@@ -49,9 +49,10 @@
                                 </li>
                             @endif
                         @else
+
                             @if (Auth::user()->role =='Admin')
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" style="font-weight: 500; color:white"class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" style="font-weight: 500; color:white" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     admin
                                 </a>
 
@@ -70,7 +71,7 @@
                             @endif
                             @if(Auth::user()->role =='Member')
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" style="font-weight: 500; color:white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
 
@@ -87,6 +88,7 @@
                                 </div>
                             </li>
                             @endif
+
                         @endguest
                     </ul>
                 </div>

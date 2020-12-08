@@ -18,7 +18,7 @@ class PizzaSeed extends Seeder
             'pizzaDetail' => 'enter desctiption here',
             'pizzaPrice' => 60000,
         ], [
-            'pizzaName' => 'Blackpepper Beef with Veggies',
+            'pizzaName' => 'Blackpepper Beefer',
             'pizzaPhoto' => 'beef_pepper.jpg',
             'pizzaDetail' => 'enter desctiption here',
             'pizzaPrice' => 85000,

@@ -14,8 +14,10 @@
                     <input type="text" class="form-control" name="x" placeholder="Search">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-primary" style="margin-left: 0.6em;">Search</button>
+                        @if(Auth::check())
                         @if(Auth::user()->role =='Admin')
                         <button type="button" class="btn btn-secondary" style="margin-left: 0.6em;">Add Pizza</button>
+                        @endif
                         @endif
                     </span>
                 </div>
@@ -37,6 +39,7 @@
                             <div class="card-body">
                             <h5 class="card-title font-weight-bold">{{$pizza->pizzaName}}</h5>
                             <p class="card-text font-weight-medium">Rp {{$pizza->pizzaPrice}}</p>
+                            
                             </div>
                         </div>
                     </div>

@@ -25,14 +25,8 @@ class HomeController extends Controller
      *
      * (@)return \Illuminate\Contracts\Support\Renderable
      */
-    // public function index()
-    // {
-    //     return view('home');
-    // }
-
-    public function pizzaData()
+    public function index()
     {
-        $pizzas = Pizza::all();
-        return view('home', compact('pizzas'));
+        return view('home');
     }
 }

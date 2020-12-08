@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Auth::routes();
 
-Route::get('/', 'HomeController@pizzaData');
-Route::get('/home', 'HomeController@pizzaData');
+Route::get('/', 'PizzaController@pizzaMenu');
+Route::get('/home', 'PizzaController@pizzaMenu');
