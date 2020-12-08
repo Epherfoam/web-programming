@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pizza;
+use App\User;
+use App\TransactionData;
+use App\TransactionItem;
 
 class HomeController extends Controller
 {
@@ -19,10 +23,16 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * (@)return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    // public function index()
+    // {
+    //     return view('home');
+    // }
+
+    public function pizzaData()
     {
-        return view('home');
+        $pizzas = Pizza::all();
+        return view('home', compact('pizzas'));
     }
 }
