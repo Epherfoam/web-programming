@@ -23,3 +23,12 @@ Auth::routes();
 
 Route::get('/', 'PizzaController@pizzaMenu');
 Route::get('/home', 'PizzaController@pizzaMenu');
+Route::get('/pizza/{id}', 'PizzaController@pizzaDetail');
+
+// Route::get('/addpizza', 'PizzaController@pizzaSearch');
+
+Route::get('/addpizza', function () {
+    return view('add');
+});
+
+Route::post('/pizzaadded', 'PizzaController@pizzaAdd');
