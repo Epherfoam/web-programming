@@ -34,3 +34,11 @@ Route::get('/addpizza', function () {
 });
 
 Route::post('/addedPizza', 'PizzaController@pizzaAdd')->name('pizzaAdds');
+
+Route::get('/updatePizza/{id}', 'PizzaController@pizzaUpdateView');
+
+Route::get('/deletePizza/{id}', 'PizzaController@pizzaDelete');
+
+Route::post('/editedPizza/{id}', 'PizzaController@pizzaUpdate')->name('pizzaEdit');
+
+Route::get('/viewAllUser', 'UserController@viewAllUser');

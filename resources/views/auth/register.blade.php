@@ -94,10 +94,10 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
-                                  <div class="radio float-left @error('gender') is-invalid @enderror" name="phoneNumber" value="{{ old('phoneNumber') }}" style="margin-top:0.6em; margin-right:0.6em;">
+                                  <div class="radio float-left @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" style="margin-top:0.6em; margin-right:0.6em;">
                                     <label  ><input name="gender" type="radio" value="Male">Male</label>
                                   </div>
-                                  <div class="radio float-left @error('gender') is-invalid @enderror" name="phoneNumber" value="{{ old('phoneNumber') }}" style="margin-top:0.6em;">
+                                  <div class="radio float-left @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" style="margin-top:0.6em;">
                                     <label ><input name="gender" type="radio" value="Female" >Female</label>
                                   </div>
 

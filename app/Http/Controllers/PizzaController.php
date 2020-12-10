@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Pizza;
-use Carbon\Traits\Timestamp;
+
 
 class PizzaController extends Controller
 {
@@ -28,23 +28,6 @@ class PizzaController extends Controller
         return view('home', compact('pizzas'));
     }
 
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  Request  $request
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    // protected function validator(Request $request)
-    // {
-    //     return Validator::make($request->all(), [
-    //         'pizzaName' => ['required', 'string', 'max:20'],
-    //         'pizzaDetail' => ['required', 'string', 'min:20'],
-    //         'pizzaPrice' => ['required', 'numeric', 'min:10000'],
-    //         'pizzaPhoto' => ['required', 'string'],
-    //     ]);
-    // }
-
     protected function pizzaAdd(Request $request)
     {
         //dd($request->pizzaPhoto);
@@ -66,5 +49,40 @@ class PizzaController extends Controller
         ]);
 
         return redirect('/');
+    }
+
+    public function pizzaUpdateView($id)
+    {
+        $pizzaId = Pizza::find($id);
+        return view('update', compact('pizzaId'));
+    }
+
+    public function pizzaUpdate(Request $request, $id)
+    {
+        //dd($id);
+        $imageData = $request->pizzaPhoto->store('image', 'public');
+
+
+        $request->validate([
+            'pizzaName' => ['required', 'string', 'max:20'],
+            'pizzaDetail' => ['required', 'string', 'min:20'],
+            'pizzaPrice' => ['required', 'numeric', 'min:10000'],
+            'pizzaPhoto' => ['required'],
+        ]);
+        Pizza::where('id', '=', $id)->update([
+            'pizzaName' => $request->pizzaName,
+            'pizzaDetail' => $request->pizzaDetail,
+            'pizzaPrice' => $request->pizzaPrice,
+            'pizzaPhoto' => $imageData,
+
+        ]);
+        return redirect('/');
+    }
+
+    public function pizzaDelete($id)
+    {
+        $delete = Pizza::find($id);
+        Pizza::where('id', $id)->delete();
+        return redirect('/home');
     }
 }

@@ -54,13 +54,13 @@
                             @if (Auth::user()->role =='Admin')
 
                             <li class="nav-item">
-                                <a class="nav-link" href=" "style="font-weight: 500; color:white">{{ __('View All User Transaction') }}</a>
+                            <a class="nav-link" href=""style="font-weight: 500; color:white">{{ __('View All User Transaction') }}</a>
                             </li>
 
                             <p style="padding-top:0.5em; color:white; user-select: none;"> | </p>
 
                             <li class="nav-item">
-                               <a class="nav-link" href=""style="font-weight: 500; color:white">{{ __('View All User') }}</a>
+                               <a class="nav-link" href="{{'/viewAllUser'}}"style="font-weight: 500; color:white">{{ __('View All User') }}</a>
                             </li>
 
                             <p style="padding-top:0.5em; color:white; user-select: none;"> | </p>

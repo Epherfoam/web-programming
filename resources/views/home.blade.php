@@ -13,7 +13,7 @@
                     <div style="margin-top: 0.6em; margin-right: 0.6em;">
                         <p>Search Pizza : </p>
                     </div>
-                <form action="{{ route('logout') }}" class="d-flex">
+                <form action="/" class="d-flex">
                         <input type="text" class="form-control" name = "search" placeholder="Search">
                         <button type="submit" class="btn btn-primary" style="margin-left: 0.6em; vertical-align: middle;">Search</button>
                     </form>
@@ -49,8 +49,8 @@
                                 @if (Auth::check())
                                     @if(Auth::user()->role =='Admin')
 
-                                        <button type="button" class="btn btn-primary">Update Pizza</button>
-                                        <button type="button" class="btn btn-danger">Delete Pizza</button>
+                                        <a href="{{asset('/updatePizza/' . $pizza->id)}}" type="button" class="btn btn-primary">Update Pizza</a>
+                                        <a href="{{asset('/deletePizza/' . $pizza->id)}}" type="button" class="btn btn-danger">Delete Pizza</a>
 
                                     @endif
                                 @endif

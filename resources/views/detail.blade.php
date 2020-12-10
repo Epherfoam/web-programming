@@ -6,7 +6,7 @@
 
 <div style="display: flex; flex-direction: row; padding-top:5rem; padding-left:6rem; ">
     <div style="flex: 1">
-        <img style="width:425px; height:400px; object-fit:cover;" src="{{ asset('image/' . $pizzaId->pizzaPhoto) }}" alt="">
+        <img style="width:425px; height:400px; object-fit:cover;" src="{{ asset('storage/' . $pizzaId->pizzaPhoto) }}" alt="">
     </div>
     <div style="flex: 2; padding-left:2em; ">
         <h1>{{$pizzaId->pizzaName}}</h1>
