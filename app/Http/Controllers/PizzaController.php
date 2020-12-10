@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Validator;
 use App\Pizza;
-
+use Carbon\Traits\Timestamp;
 
 class PizzaController extends Controller
 {
@@ -29,17 +28,41 @@ class PizzaController extends Controller
         return view('home', compact('pizzas'));
     }
 
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    // protected function validator(Request $request)
+    // {
+    //     return Validator::make($request->all(), [
+    //         'pizzaName' => ['required', 'string', 'max:20'],
+    //         'pizzaDetail' => ['required', 'string', 'min:20'],
+    //         'pizzaPrice' => ['required', 'numeric', 'min:10000'],
+    //         'pizzaPhoto' => ['required', 'string'],
+    //     ]);
+    // }
+
     protected function pizzaAdd(Request $request)
     {
-        $pName = $request->pizzaName;
-        $pDesc = $request->pizzaDetail;
-        $pPrice = $request->pizzaPrice;
+        //dd($request->pizzaPhoto);
+        $imageData = $request->pizzaPhoto->store('image', 'public');
 
-        return Validator::make($request, [
-            'pizzaName' => ['required', 'string', 'max:255'],
-            'pizzaDetail' => ['required', 'string', 'min:8'],
-            'pizzaPrice' => ['required', 'numeric', 'min:20000'],
-            'pizzaImage' => ['required', 'string', 'max:15'],
+        $request->validate([
+            'pizzaName' => ['required', 'string', 'max:20'],
+            'pizzaDetail' => ['required', 'string', 'min:20'],
+            'pizzaPrice' => ['required', 'numeric', 'min:10000'],
+            'pizzaPhoto' => ['required'],
+        ]);
+
+        Pizza::create([
+            'pizzaName' => $request->pizzaName,
+            'pizzaDetail' => $request->pizzaDetail,
+            'pizzaPrice' => $request->pizzaPrice,
+            'pizzaPhoto' => $imageData,
+
         ]);
 
         return redirect('/');

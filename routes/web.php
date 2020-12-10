@@ -20,15 +20,17 @@ Route::get('/', function () {
 
 
 Auth::routes();
-
+//Arahkan semua route ke home dan melakukan search, termasuk pada guest, member, dan admin
 Route::get('/', 'PizzaController@pizzaMenu');
 Route::get('/home', 'PizzaController@pizzaMenu');
+Route::get('/', 'PizzaController@pizzaSearch');
+
+//Arahkan ke pizza detail
 Route::get('/pizza/{id}', 'PizzaController@pizzaDetail');
 
-// Route::get('/addpizza', 'PizzaController@pizzaSearch');
 
 Route::get('/addpizza', function () {
     return view('add');
 });
 
-Route::post('/pizzaadded', 'PizzaController@pizzaAdd');
+Route::post('/addedPizza', 'PizzaController@pizzaAdd')->name('pizzaAdds');

@@ -7,38 +7,55 @@
             <div class="card">
                 <div class="card-header bg-danger" style="color:white;">{{ __('Add pizza') }}</div>
 
-                <form action="" style="padding-top:2em">
+                <form action="{{route('pizzaAdds')}}" style="padding-top:2em" method="post" enctype="multipart/form-data">
+
+                    @csrf
 
                     <div class="form-group row">
                         {{-- Pizza Name --}}
-                        <label for="pizzaName" class="col-md-4 col-form-label text-md-right" style="padding-bottom:2em;">{{ __('Pizza Name') }}</label>
+                        <label for="pizzaName" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em;">{{ __('Pizza Name') }}</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="pizzaName" >
+                            <input type="text" class="form-control @error('pizzaName') is-invalid @enderror" name="pizzaName" value="{{ old('pizzaName') }}" required autocomplete="pizzaName">
+                            @error('pizzaName')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
                         {{-- Pizza Description --}}
-                        <label for="pizzaDetail" class="col-md-4 col-form-label text-md-right" style="padding-bottom:2em;">{{ __('Pizza Description') }}</label>
+                        <label for="pizzaDetail" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em;">{{ __('Pizza Description') }}</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="pizzaDetail">
+                            <input type="text" class="form-control @error('pizzaDetail') is-invalid @enderror" name="pizzaDetail" value="{{ old('pizzaDetail') }}" required autocomplete="pizzaDetail">
+                            @error('pizzaDetail')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
                         {{-- Pizza Price --}}
-                        <label for="pizzaPrice" class="col-md-4 col-form-label text-md-right" style="padding-bottom:2em;">{{ __('Pizza Price') }}</label>
+                        <label for="pizzaPrice" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em;">{{ __('Pizza Price') }}</label>
                         <div class="col-md-6">
-                            <input type="number" class="form-control" name="pizzaPrice">
+                            <input type="number" class="form-control @error('pizzaPrice') is-invalid @enderror" name="pizzaPrice" value="{{ old('pizzaPrice') }}" required autocomplete="pizzaPrice">
+                            @error('pizzaPrice')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-
-                        <label for="pizzaDetail" class="col-md-4 col-form-label text-md-right" style="padding-bottom:2em; ">{{ __('Pizza Image') }}</label>
+                        {{-- Pizza Photo --}}
+                        <label for="pizzaPhoto" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em; ">{{ __('Pizza Photo') }}</label>
                         <div class="col-md-6">
-                            <input type="file" class="custom-file-input" id="pizzaImage">
-                            <label class="custom-file-label" for="pizzaImage">Choose file</label>
+                            <input type="file" class="form-control-file @error('pizzaPhoto') is-invalid @enderror" name="pizzaPhoto" value="{{ old('pizzaPhoto') }}" required autocomplete="pizzaPhoto">
+                            @error('pizzaPhoto')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
+                       <div class="col-md-8 offset-md-4">
+                            <button type="submit" class="btn btn-primary">Add Pizza</button>
                         </div>
 
-                        {{csrf_field()}}
-
-                        <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-primary">Add Pizza</a>
-                        </div>
                 </form>
 
                 <div class="card-body">

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pizza extends Model
 {
+
+    public $timestamps = false;
     protected $fillable = [
         'id', 'pizzaName', 'pizzaPhoto', 'pizzaDetail', 'pizzaPrice'
     ];

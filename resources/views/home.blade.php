@@ -13,7 +13,7 @@
                     <div style="margin-top: 0.6em; margin-right: 0.6em;">
                         <p>Search Pizza : </p>
                     </div>
-                <form action="/" class="d-flex">
+                <form action="{{ route('logout') }}" class="d-flex">
                         <input type="text" class="form-control" name = "search" placeholder="Search">
                         <button type="submit" class="btn btn-primary" style="margin-left: 0.6em; vertical-align: middle;">Search</button>
                     </form>
@@ -40,7 +40,7 @@
                         <div class="card" >
                             <a href="{{asset('/pizza/' . $pizza->id )}}" >
                                 <div style=" overflow:hidden; position: relative;">
-                                    <img style="width:270px; height:270px; object-fit:cover;" src="{{asset('image/' . $pizza->pizzaPhoto)}}" class="" alt="Pizza Picture" >
+                                    <img style="width:270px; height:270px; object-fit:cover;" src="{{asset('storage/' . $pizza->pizzaPhoto)}}" class="" alt="Pizza Picture" >
                                 </div>
                                 <div class="card-body">
                                 <h5 class="card-title font-weight-bold" style="text-decoration : none; color: #000000;">{{$pizza->pizzaName}}</h5>
