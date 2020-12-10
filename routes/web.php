@@ -37,8 +37,11 @@ Route::post('/addedPizza', 'PizzaController@pizzaAdd')->name('pizzaAdds');
 
 Route::get('/updatePizza/{id}', 'PizzaController@pizzaUpdateView');
 
-Route::get('/deletePizza/{id}', 'PizzaController@pizzaDelete');
-
 Route::post('/editedPizza/{id}', 'PizzaController@pizzaUpdate')->name('pizzaEdit');
+
+Route::get('/deletePizza/{id}', 'PizzaController@pizzaDeleteView');
+
+Route::get('/delete/{id}', 'PizzaController@pizzaDelete');
+
 
 Route::get('/viewAllUser', 'UserController@viewAllUser');

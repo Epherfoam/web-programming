@@ -79,10 +79,16 @@ class PizzaController extends Controller
         return redirect('/');
     }
 
+    public function pizzaDeleteView($id)
+    {
+        $pizzaId = Pizza::find($id);
+        return view('delete', compact('pizzaId'));
+    }
+
     public function pizzaDelete($id)
     {
         $delete = Pizza::find($id);
         Pizza::where('id', $id)->delete();
-        return redirect('/home');
+        return redirect('home');
     }
 }
