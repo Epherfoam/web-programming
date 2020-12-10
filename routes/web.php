@@ -22,8 +22,11 @@ Route::get('/', function () {
 Auth::routes();
 //Arahkan semua route ke home dan melakukan search, termasuk pada guest, member, dan admin
 Route::get('/', 'PizzaController@pizzaMenu');
+
 Route::get('/home', 'PizzaController@pizzaMenu');
+
 Route::get('/', 'PizzaController@pizzaSearch');
+
 
 //Arahkan ke pizza detail
 Route::get('/pizza/{id}', 'PizzaController@pizzaDetail');
@@ -42,6 +45,5 @@ Route::post('/editedPizza/{id}', 'PizzaController@pizzaUpdate')->name('pizzaEdit
 Route::get('/deletePizza/{id}', 'PizzaController@pizzaDeleteView');
 
 Route::get('/delete/{id}', 'PizzaController@pizzaDelete');
-
 
 Route::get('/viewAllUser', 'UserController@viewAllUser');

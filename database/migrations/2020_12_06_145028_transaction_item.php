@@ -14,6 +14,9 @@ class TransactionItem extends Migration
     public function up()
     {
         Schema::create('transactionItems', function (Blueprint $table) {
+            $table->id;
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('pizza_id')->unsigned();
             $table->foreign('pizza_id')->references('id')->on('pizzas');
             $table->bigInteger('order_id')->unsigned();
