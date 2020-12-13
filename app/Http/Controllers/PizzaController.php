@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Pizza;
@@ -86,6 +87,7 @@ class PizzaController extends Controller
     public function pizzaDelete($id)
     {
         $delete = Pizza::find($id);
+        History::where('pizza_id', $id)->delete();
         Pizza::where('id', $id)->delete();
         return redirect('home');
     }

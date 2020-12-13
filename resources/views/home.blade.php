@@ -7,7 +7,7 @@
     <h1>Our Freshly Made Pizza!</h1>
     <h2 class="text-muted" style="margin-bottom: 1em;">Order it now!</h2>
     <div class="container">
-        <div class="row">
+        <div class="row" >
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="input-group">
 
@@ -38,7 +38,7 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <div class="card-deck">
-                <div class="row">
+                <div class="row" style="justify-content: center;">
                     @foreach($pizzas as $pizza)
                         <div class="col-auto" style="margin-bottom:2em; margin-top:2em;">
                         <div class="card" >
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div class = "offset-5" style="padding-top: 30px;">
+    <div style="display:flex; justify-content:center; align-items: center; padding-top: 30px;">
             {{$pizzas->links()}}
         </div>
 </div>
