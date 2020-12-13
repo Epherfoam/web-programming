@@ -14,6 +14,6 @@ class Pizza extends Model
 
     public function toTransItemFunc()
     {
-        return $this->HasMany('App\Models\TransactionItem');
+        return $this->HasMany('App\TransactionItem');
     }
 }

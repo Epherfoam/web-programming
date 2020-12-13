@@ -11,18 +11,41 @@
     <div style="flex: 2; padding-left:2em; ">
         <h1>{{$pizzaId->pizzaName}}</h1>
         <div class="text-muted" style="font-size: 30pt">Rp{{ number_format($pizzaId->pizzaPrice,2,',','.')}}</div>
-    <p>{{$pizzaId->pizzaDetail}}</p>
+        <p>{{$pizzaId->pizzaDetail}}</p>
         @if(Auth::check())
             @if(Auth::user()->role =='Member')
             <div class="input-group">
                 <div style="margin-top: 0.6em; margin-right: 0.6em;">
                     <p>Quantity : </p>
                 </div>
-                <div class="col-xd-2">
-                    <input type="number" class="form-control input-sm" id="quantity" placeholder="Minimal 1." >
-                </div>
+
+                <form action="{{url('/cartPizza/' . $pizzaId->id)}}" method="post">
+                    @csrf
+                    <div class="col-xd-2">
+                        <input type="number" class="form-control input-sm @error('quantity') is-invalid @enderror"  name="quantity" id="quantity" value="{{ old('quantity') }}" required autocomplete="quantity" placeholder="Minimal 1." >
+                    </div>
+                    @error('quantity')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <button type="submit" class="btn btn-primary " style="margin-top: 1em; text-align:center;">Add to cart</button>
+                    {{--dd($pizzaId)--}}
+
+                    @if (session('success'))
+                        <div class="alert alert-success" style="margin-top: 2em">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger" style="margin-top: 2em">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                </form>
             </div>
-            <a href="" type="button" class="btn btn-primary align-middle" style=" text-align:center;">Add to cart</a>
             @endif
         @endif
     </div>

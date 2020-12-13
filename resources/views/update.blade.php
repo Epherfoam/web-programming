@@ -10,6 +10,7 @@
     </div>
     <div style="flex: 2; padding-right:14em; ">
         <h1 style="padding-left:2em; ">Edit Pizza</h1>
+
         <form action="{{url('/editedPizza/' . $pizzaId->id)}}" style="padding-top:2em" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
@@ -45,13 +46,13 @@
                 </div>
                 {{-- Pizza Photo --}}
                 <label for="pizzaPhoto" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em; ">{{ __('Pizza Photo') }}</label>
-                <div class="col-md-6">
-                    <input type="file" class="form-control-file @error('pizzaPhoto') is-invalid @enderror" name="pizzaPhoto" value="{{ old('pizzaPhoto') }}" required autocomplete="pizzaPhoto">
+                <div class="col-md-6">value="{{ old('pizzaPhoto') }}"
+                    <input type="file" class="form-control-file @error('pizzaPhoto') is-invalid @enderror" name="pizzaPhoto"  required autocomplete="pizzaPhoto">
                     @error('pizzaPhoto')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
-                @enderror
+                    @enderror
                 </div>
                <div class="col-md-8 offset-md-4">
                     <button type="submit" class="btn btn-primary">Add Pizza</button>

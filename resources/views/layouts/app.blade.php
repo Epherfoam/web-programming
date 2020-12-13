@@ -54,7 +54,7 @@
                             @if (Auth::user()->role =='Admin')
 
                             <li class="nav-item">
-                            <a class="nav-link" href=""style="font-weight: 500; color:white">{{ __('View All User Transaction') }}</a>
+                            <a class="nav-link" href="{{'/viewAllTransaction'}}"style="font-weight: 500; color:white">{{ __('View All User Transaction') }}</a>
                             </li>
 
                             <p style="padding-top:0.5em; color:white; user-select: none;"> | </p>
@@ -86,13 +86,13 @@
                             @if(Auth::user()->role =='Member')
 
                             <li class="nav-item">
-                                <a class="nav-link" href=""style="font-weight: 500; color:white">{{ __('View Transaction History') }}</a>
+                                <a class="nav-link" href="{{url('transactionHistory')}}"style="font-weight: 500; color:white">{{ __('View Transaction History') }}</a>
                             </li>
 
                             <p style="padding-top:0.5em; color:white; user-select: none;"> | </p>
 
                             <li class="nav-item">
-                               <a class="nav-link" href=""style="font-weight: 500; color:white">{{ __('View Cart') }}</a>
+                               <a class="nav-link" href="{{url('cart')}}" style="font-weight: 500; color:white">{{ __('View Cart') }}</a>
                             </li>
 
                             <p style="padding-top:0.5em; color:white; user-select: none;"> | </p>

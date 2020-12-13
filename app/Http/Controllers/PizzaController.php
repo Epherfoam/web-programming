@@ -9,6 +9,7 @@ use App\Pizza;
 
 class PizzaController extends Controller
 {
+
     public function pizzaMenu()
     {
         $pizzas = Pizza::paginate(6);
@@ -45,7 +46,6 @@ class PizzaController extends Controller
             'pizzaDetail' => $request->pizzaDetail,
             'pizzaPrice' => $request->pizzaPrice,
             'pizzaPhoto' => $imageData,
-
         ]);
 
         return redirect('/');
@@ -62,7 +62,6 @@ class PizzaController extends Controller
         //dd($id);
         $imageData = $request->pizzaPhoto->store('image', 'public');
 
-
         $request->validate([
             'pizzaName' => ['required', 'string', 'max:20'],
             'pizzaDetail' => ['required', 'string', 'min:20'],
@@ -74,7 +73,6 @@ class PizzaController extends Controller
             'pizzaDetail' => $request->pizzaDetail,
             'pizzaPrice' => $request->pizzaPrice,
             'pizzaPhoto' => $imageData,
-
         ]);
         return redirect('/');
     }

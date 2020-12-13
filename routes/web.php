@@ -39,11 +39,27 @@ Route::get('/addpizza', function () {
 Route::post('/addedPizza', 'PizzaController@pizzaAdd')->name('pizzaAdds');
 
 Route::get('/updatePizza/{id}', 'PizzaController@pizzaUpdateView');
-
 Route::post('/editedPizza/{id}', 'PizzaController@pizzaUpdate')->name('pizzaEdit');
 
 Route::get('/deletePizza/{id}', 'PizzaController@pizzaDeleteView');
-
 Route::get('/delete/{id}', 'PizzaController@pizzaDelete');
 
 Route::get('/viewAllUser', 'UserController@viewAllUser');
+
+Route::post('/cartPizza/{id}', 'TransactionController@receiveCart');
+
+Route::get('/cart', 'TransactionController@viewCart');
+
+Route::post('/updateQuantity/{id}', 'TransactionController@updateCart');
+
+Route::get('/deleteCart/{id}', 'TransactionController@deleteCart');
+
+Route::post('/checkout', 'TransactionController@checkout');
+
+Route::get('/transactionHistory', 'TransactionController@viewTransaction');
+
+Route::get('/history/{id}', 'TransactionController@viewTransactionHistory');
+
+Route::get('/allTransactionUser/{id}', 'TransactionController@viewUserTransaction');
+
+Route::get('/viewAllTransaction', 'TransactionController@viewAllTransaction');

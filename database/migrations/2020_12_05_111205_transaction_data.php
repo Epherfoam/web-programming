@@ -13,7 +13,7 @@ class TransactionData extends Migration
      */
     public function up()
     {
-        Schema::create('transactionDatas', function (Blueprint $table) {
+        Schema::create('transaction_data', function (Blueprint $table) {
             $table->id();
             $table->integer('totalPrice');
             $table->bigInteger('user_id')->unsigned();
@@ -29,6 +29,6 @@ class TransactionData extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('TableTransactionData');
+        Schema::dropIfExists('transaction_data');
     }
 }

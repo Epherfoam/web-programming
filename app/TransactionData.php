@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionData extends Model
 {
-    public function transactionItemToTransactionDataFunc()
+    protected $fillable = [
+        'id', 'totalPrice', 'user_id', 'created_at', 'updated_at',
+    ];
+
+    public function transactionItem()
     {
-        return $this->HasMany('App\Models\TransactionItem');
+        return $this->HasMany('App\TransactionItem');
     }
 
-    public function userToTransactionDataFunc()
+    public function user()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsTo('App\User');
     }
 }

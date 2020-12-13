@@ -29,6 +29,6 @@ class Pizza extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('TablePizza');
+        Schema::dropIfExists('pizzas');
     }
 }

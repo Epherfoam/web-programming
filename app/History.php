@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TransactionItem extends Model
+class History extends Model
 {
     public $timestamps = false;
-
     protected $fillable = [
-        'id', 'user_id', 'pizza_id', 'order_id', 'itemQuantity'
+        'id', 'user_id', 'pizza_id', 'order_id', 'price', 'itemQuantity', 'username'
     ];
 
     public function transactionData()
