@@ -19,7 +19,7 @@ class PizzaController extends Controller
     public function pizzaDetail($id)
     {
         $pizzaId = Pizza::find($id);
-        return view('admin.detail', compact('pizzaId'));
+        return view('user.detail', compact('pizzaId'));
     }
 
     public function pizzaSearch(Request $request)

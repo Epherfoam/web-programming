@@ -10,14 +10,18 @@
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="input-group">
-                    <div style="margin-top: 0.6em; margin-right: 0.6em;">
-                        <p>Search Pizza : </p>
-                    </div>
-                <form action="/" class="d-flex">
-                        <input type="text" class="form-control" name = "search" placeholder="Search">
-                        <button type="submit" class="btn btn-primary" style="margin-left: 0.6em; vertical-align: middle;">Search</button>
-                    </form>
-                    <span class="input-group-btn">
+
+                        @if(!Auth::check() || Auth::user()->role == 'Member')
+                            <div style="margin-top: 0.6em; margin-right: 0.6em;">
+                                <p>Search Pizza : </p>
+                            </div>
+                        <form action="/" class="d-flex">
+                                <input type="text" class="form-control" name = "search" placeholder="Search">
+                                <button type="submit" class="btn btn-primary" style="margin-left: 0.6em; vertical-align: middle;">Search</button>
+                            </form>
+                            <span class="input-group-btn">
+                        @endif
+
 
                         @if(Auth::check())
                             @if(Auth::user()->role =='Admin')

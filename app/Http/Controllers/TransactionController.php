@@ -121,8 +121,6 @@ class TransactionController extends Controller
             $transactionHistory = History::where('order_id', '=', $id)->get();
         }
 
-        // dd($transactionHistory);
-
         $totalProd = 0;
 
         foreach ($transactionHistory as $t) {
