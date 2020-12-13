@@ -19,7 +19,7 @@ class PizzaController extends Controller
     public function pizzaDetail($id)
     {
         $pizzaId = Pizza::find($id);
-        return view('detail', compact('pizzaId'));
+        return view('admin.detail', compact('pizzaId'));
     }
 
     public function pizzaSearch(Request $request)
@@ -54,7 +54,7 @@ class PizzaController extends Controller
     public function pizzaUpdateView($id)
     {
         $pizzaId = Pizza::find($id);
-        return view('update', compact('pizzaId'));
+        return view('admin.update', compact('pizzaId'));
     }
 
     public function pizzaUpdate(Request $request, $id)
@@ -80,7 +80,7 @@ class PizzaController extends Controller
     public function pizzaDeleteView($id)
     {
         $pizzaId = Pizza::find($id);
-        return view('delete', compact('pizzaId'));
+        return view('admin.delete', compact('pizzaId'));
     }
 
     public function pizzaDelete($id)

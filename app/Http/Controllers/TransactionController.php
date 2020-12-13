@@ -59,7 +59,7 @@ class TransactionController extends Controller
             $currentTotalProd += $t->itemQuantity * $t->pizza->pizzaPrice;
         }
 
-        return view('cart', compact('transactionItem', 'currentTotalProd'));
+        return view('user.cart', compact('transactionItem', 'currentTotalProd'));
     }
 
     public function updateCart(Request $request, $id)
@@ -109,7 +109,7 @@ class TransactionController extends Controller
     public function viewTransaction()
     {
         $transactionGet = TransactionData::where('user_id', Auth::id())->get();
-        return view('transactionUser', compact('transactionGet'));
+        return view('user.transactionUser', compact('transactionGet'));
     }
 
     public function viewTransactionHistory(Request $request, $id)
@@ -135,6 +135,6 @@ class TransactionController extends Controller
     {
         $transactionGet = TransactionData::where('id', '!=', null)->get();
 
-        return view('allTransactionUser', compact('transactionGet'));
+        return view('admin.allTransactionUser', compact('transactionGet'));
     }
 }
