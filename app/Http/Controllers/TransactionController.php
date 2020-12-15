@@ -121,12 +121,14 @@ class TransactionController extends Controller
         return redirect('/');
     }
 
+    //view history transaction list member
     public function viewTransaction()
     {
         $transactionGet = TransactionData::where('user_id', Auth::id())->get();
         return view('user.transactionUser', compact('transactionGet'));
     }
 
+    //view history transaction detail
     public function viewTransactionHistory(Request $request, $id)
     {
 
@@ -144,6 +146,7 @@ class TransactionController extends Controller
         return view('transactionUserDetail', compact('transactionHistory', 'totalProd'));
     }
 
+    //view history transaction list admin
     public function viewAllTransaction()
     {
         $transactionGet = TransactionData::where('id', '!=', null)->get();
