@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-
 Auth::routes();
 //Arahkan semua route ke home dan melakukan search, termasuk pada guest, member, dan admin
 Route::get('/', 'PizzaController@pizzaMenu');
