@@ -49,8 +49,8 @@
                 </div>
                 {{-- Pizza Photo --}}
                 <label for="pizzaPhoto" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em; ">{{ __('Pizza Photo') }}</label>
-                <div class="col-md-6">value="{{ old('pizzaPhoto') }}"
-                    <input type="file" class="form-control-file @error('pizzaPhoto') is-invalid @enderror" name="pizzaPhoto"  required autocomplete="pizzaPhoto">
+                <div class="col-md-6">
+                    <input type="file" class="form-control-file @error('pizzaPhoto') is-invalid @enderror" name="pizzaPhoto"  required autocomplete="pizzaPhoto" value="{{ old('pizzaPhoto') }}">
                     @error('pizzaPhoto')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
