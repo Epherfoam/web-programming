@@ -2,6 +2,7 @@
 
 @section('content')
 
+{{-- If admin, acces this page. Else, access denied --}}
 @if (Auth::check())
     @if(Auth::user()->role =='Admin')
         <div class="container">
@@ -9,11 +10,9 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header bg-danger" style="color:white;">{{ __('Add pizza') }}</div>
-
+                        {{-- Form to post data --}}
                         <form action="{{route('pizzaAdds')}}" style="padding-top:2em" method="post" enctype="multipart/form-data">
-
                             @csrf
-
                             <div class="form-group row">
                                 {{-- Pizza Name --}}
                                 <label for="pizzaName" class="col-md-4 col-form-label text-md-right " style="padding-bottom:2em;">{{ __('Pizza Name') }}</label>
@@ -53,14 +52,12 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
                                 </div>
-                            <div class="col-md-8 offset-md-4">
+                                <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">Add Pizza</button>
                                 </div>
-
                         </form>
-
                         <div class="card-body">
                         </div>
                     </div>

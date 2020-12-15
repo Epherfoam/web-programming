@@ -4,6 +4,8 @@
 
 @if (Auth::check())
     @if(Auth::user()->role =='Admin')
+
+    {{-- Should be accessed by admin, else return error page --}}
 <div style="display: flex; flex-direction: row; padding-top:5rem; padding-left:6rem; ">
     <div style="flex: 1">
         <img style="width:425px; height:400px; object-fit:cover;" src="{{asset('storage/' . $pizzaId->pizzaPhoto)}}" alt="">
@@ -11,6 +13,7 @@
     <div style="flex: 2; padding-right:14em; ">
         <h1 style="padding-left:2em; ">Edit Pizza</h1>
 
+        {{-- Form to update data --}}
         <form action="{{url('/editedPizza/' . $pizzaId->id)}}" style="padding-top:2em" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
