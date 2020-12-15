@@ -30,14 +30,11 @@ class LoginController extends Controller
         $rememberTokenExpireMinutes = 120;
 
         // first we need to get the "remember me" cookie's key, this key is generate by laravel randomly
-        // it looks like: remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d
         $rememberTokenName = Auth::getRecallerName();
 
         // reset that cookie's expire time
         Cookie::queue($rememberTokenName, Cookie::get($rememberTokenName), $rememberTokenExpireMinutes);
 
-
-        // the code below is just copy from AuthenticatesUsers
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);

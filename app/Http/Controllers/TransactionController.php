@@ -71,6 +71,7 @@ class TransactionController extends Controller
         TransactionItem::where('id', '=', $id)->update([
             'itemQuantity' => $request->quantity,
         ]);
+        
         History::where('id', '=', $id)->update([
             'itemQuantity' => $request->quantity,
         ]);

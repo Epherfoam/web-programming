@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'PHizza') }}</title>
+    <title>🍕 PHizza Hut</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -40,6 +40,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+                        {{-- Section 0, if there's no login session, the navbar content changes to >>> --}}
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"style="font-weight: 500; color:white">{{ __('Login') }}</a>
@@ -51,6 +53,7 @@
                             @endif
                         @else
 
+                            {{-- Section 1, if the login sesison was Admin, the navbar content changes to >>> --}}
                             @if (Auth::user()->role =='Admin')
 
                             <li class="nav-item">
@@ -83,6 +86,9 @@
                                 </div>
                             </li>
                             @endif
+
+                            {{-- Section 2, if the login sesison was Member, the navbar content changes to >>> --}}
+
                             @if(Auth::user()->role =='Member')
 
                             <li class="nav-item">
@@ -115,13 +121,14 @@
                                 </div>
                             </li>
                             @endif
-
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
 
+
+        {{-- Yield content per layout given --}}
         <main class="py-4">
             @yield('content')
         </main>
