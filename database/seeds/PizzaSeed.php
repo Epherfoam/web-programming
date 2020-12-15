@@ -12,6 +12,7 @@ class PizzaSeed extends Seeder
      */
     public function run()
     {
+        // Seeding normal pizza
         DB::table('pizzas')->insert([[
             'pizzaName' => 'Bacon and Egg',
             'pizzaPhoto' => 'image/bacon_egg.jpg',

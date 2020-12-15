@@ -13,6 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        // Seed admin and blank member
         DB::table('users')->insert([[
             'username' => 'admin',
             'email' => 'admin@admin.com',

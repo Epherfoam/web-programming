@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        //Seed the class
         $this->call([
             UserSeeder::class,
             PizzaSeed::class,

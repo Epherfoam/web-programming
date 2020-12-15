@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
+
+    //add item to cart
     public function receiveCart(Request $request, $id)
     {
         $pizzaId = Pizza::find($id);
@@ -45,10 +47,12 @@ class TransactionController extends Controller
         } else {
             return back()->with('error', 'Pizza multiple, you can update or delete at cart');
         }
-        //dd($pizzaSame);
+
         return back()->with('success', 'Pizza added, you can safely go to home or to cart');
     }
 
+
+    //return view cart
     public function viewCart(Request $request)
     {
         $transactionItem = TransactionItem::where('user_id', Auth::id())->get();
@@ -62,6 +66,7 @@ class TransactionController extends Controller
         return view('user.cart', compact('transactionItem', 'currentTotalProd'));
     }
 
+    // update pizza quantity in cart
     public function updateCart(Request $request, $id)
     {
         $request->validate([
@@ -71,7 +76,7 @@ class TransactionController extends Controller
         TransactionItem::where('id', '=', $id)->update([
             'itemQuantity' => $request->quantity,
         ]);
-        
+
         History::where('id', '=', $id)->update([
             'itemQuantity' => $request->quantity,
         ]);
@@ -79,33 +84,38 @@ class TransactionController extends Controller
         return back();
     }
 
+
+    //delete pizza form cart
     public function deleteCart(Request $request, $id)
     {
         TransactionItem::where('id', '=', $id)->delete();
         return back();
     }
 
+    //checkout cart
     public function checkout()
     {
 
         $transactionItem = TransactionItem::where('user_id', Auth::id())->where('order_id', '=', null)->get();
 
+        //coutn total
         $totalProd = 0;
-
         foreach ($transactionItem as $t) {
             $totalProd += $t->itemQuantity * $t->pizza->pizzaPrice;
         }
 
-
+        //update transaction data
         $order = TransactionData::create([
             'totalPrice' => $totalProd,
             'user_id' => Auth::id(),
         ]);
 
+        //add data to history
         History::where('user_id', Auth::id())->where('order_id', '=', null)->update([
             'order_id' => $order->id,
         ]);
 
+        //clear cart
         TransactionItem::query()->delete();
 
         return redirect('/');

@@ -24,6 +24,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    //rememb er me cookies
     protected function sendLoginResponse(Request $request)
     {
         // set remember me expire time

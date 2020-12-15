@@ -10,19 +10,21 @@ use App\Pizza;
 
 class PizzaController extends Controller
 {
-
+    //home paginate card
     public function pizzaMenu()
     {
         $pizzas = Pizza::paginate(6);
         return view('home', compact('pizzas'));
     }
 
+    //show detail page
     public function pizzaDetail($id)
     {
         $pizzaId = Pizza::find($id);
         return view('user.detail', compact('pizzaId'));
     }
 
+    //search fucntion
     public function pizzaSearch(Request $request)
     {
         $input = $request->search;
@@ -30,6 +32,7 @@ class PizzaController extends Controller
         return view('home', compact('pizzas'));
     }
 
+    //add pizza for admin
     protected function pizzaAdd(Request $request)
     {
         //dd($request->pizzaPhoto);
@@ -52,12 +55,14 @@ class PizzaController extends Controller
         return redirect('/');
     }
 
+    //return pizza update page view
     public function pizzaUpdateView($id)
     {
         $pizzaId = Pizza::find($id);
         return view('admin.update', compact('pizzaId'));
     }
 
+    // pizza update function
     public function pizzaUpdate(Request $request, $id)
     {
         //dd($id);
@@ -78,12 +83,15 @@ class PizzaController extends Controller
         return redirect('/');
     }
 
+
+    //return pizza delete page view
     public function pizzaDeleteView($id)
     {
         $pizzaId = Pizza::find($id);
         return view('admin.delete', compact('pizzaId'));
     }
 
+    //pizza delete function
     public function pizzaDelete($id)
     {
         $delete = Pizza::find($id);
